@@ -1,6 +1,18 @@
 def consolidate_cart(cart)
-  # code here
-end
+  new_cart = {}
+  cart.each do |item|
+    item.each do |name, values|
+      if new_cart.include?(name)
+        new_cart[name][:count] += 1
+      else
+        new_cart[name] = values
+        new_cart[name][:count] = 1
+      end
+    end
+  end
+  new_cart
+end        
+    
 
 def apply_coupons(cart, coupons)
   # code here
